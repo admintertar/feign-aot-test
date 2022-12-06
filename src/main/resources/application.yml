@@ -1,0 +1,38 @@
+server:
+  port: 31112
+spring:
+  messages:
+    basename: i18n.messages
+    encoding: UTF-8
+  application:
+    name: demo
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://192.168.1.204:3306/x-cloud-platform?useUnicode=true&serverTimezone=GMT%2b8&characterEncoding=utf-8&useSSL=false}
+    username: ${SPRING_DATASOURCE_USERNAME:o2o}
+    password: ${SPRING_DATASOURCE_PASSWORD:shushang123}
+    hikari:
+      # ??????????
+      minimum-idle: ${SPRING_DATASOURCE_MINIMUM_IDLE:20}
+      # ???????????
+      maximum-pool-size: ${SPRING_DATASOURCE_MAXIMUM_POOL_SIZE:1000}
+      # ??????????????????
+      connection-timeout: ${SPRING_DATASOURCE_CONNECTION_TIMEOUT:30000}
+
+#  cloud:
+#    nacos:
+#      discovery:
+#        register-enabled: ${SPRING_CLOUD_NACOS_DISCOVERY_REGISTER_ENABLED:true}
+#        server-addr: ${NACOS_SERVER_ADDR:192.168.1.29:31343}
+#        username: ${NACOS_USERNAME:nacos}
+#        password: ${NACOS_PASSWORD:nacos}
+#        namespace: ${NACOS_NAMESPACE:463a8723-28d7-431c-87e7-2164f884f072}
+#      config:
+#        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+#        username: ${spring.cloud.nacos.discovery.username}
+#        password: ${spring.cloud.nacos.discovery.password}
+#        namespace: ${spring.cloud.nacos.discovery.namespace}
+#
+#
+#  config:
+#    import:
+#      - nacos:${spring.application.name}.yml    #自己服务的配置
